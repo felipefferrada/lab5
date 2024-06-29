@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package fulcrum;
+
+option go_package = "/proto";
+
+service Fulcrum {
+  rpc AgregarBase(AgregarBaseRequest) returns (AgregarBaseResponse);
+  rpc RenombrarBase(RenombrarBaseRequest) returns (RenombrarBaseResponse);
+  rpc ActualizarValor(ActualizarValorRequest) returns (ActualizarValorResponse);
+  rpc BorrarBase(BorrarBaseRequest) returns (BorrarBaseResponse);
+  rpc GetEnemigos(GetEnemigosRequest) returns (GetEnemigosResponse);
+}
+
+message AgregarBaseRequest {
+  string sector = 1;
+  string base = 2;
+  int32 enemigos = 3;
+}
+
+message AgregarBaseResponse {
+  string mensaje = 1;
+}
+
+message RenombrarBaseRequest {
+  string sector = 1;
+  string base_antigua = 2;
+  string base_nueva = 3;
+}
+
+message RenombrarBaseResponse {
+  string mensaje = 1;
+}
+
+message ActualizarValorRequest {
+  string sector = 1;
+  string base = 2;
+  int32 enemigos = 3;
+}
+
+message ActualizarValorResponse {
+  string mensaje = 1;
+}
+
+message BorrarBaseRequest {
+  string sector = 1;
+  string base = 2;
+}
+
+message BorrarBaseResponse {
+  string mensaje = 1;
+}
+
+message GetEnemigosRequest {
+  string sector = 1;
+  string base = 2;
+}
+
+message GetEnemigosResponse {
+  int32 enemigos = 1;
+}

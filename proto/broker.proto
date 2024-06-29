@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package broker;
+
+option go_package = "/proto";
+
+service Broker {
+  rpc RedirigirComando(ComandoRequest) returns (ComandoResponse);
+}
+
+message ComandoRequest {
+  string comando = 1;
+}
+
+message ComandoResponse {
+  string direccion_fulcrum = 1;
+}
